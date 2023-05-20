@@ -15,7 +15,7 @@ class PostingListActivity : BaseViewBindingActivity<ActivityPostingListBinding>(
         val postVPAdapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = postVPAdapter
         val tabTitleArray = arrayOf(
-            "트렌드","최신순"
+            "트렌딩","최신"
         )
         TabLayoutMediator(binding.tabLayout,binding.viewPager) {tab, position ->
             tab.text = tabTitleArray[position]
