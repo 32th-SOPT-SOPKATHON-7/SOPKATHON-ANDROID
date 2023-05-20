@@ -5,6 +5,7 @@ import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateCommen
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.DetailArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.NewArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.CreateArticleResponse
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.CreateCommentResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TotalStationStationResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TrendArticleResponse
 import retrofit2.Response
@@ -42,5 +43,5 @@ interface SoptService {
     suspend fun postCreateComment(
         @Path("postId") postId: Int,
         @Body body: CreateCommentRequest
-    ): Response<CreateCommentRequest>
+    ): Response<CreateCommentResponse>
 }

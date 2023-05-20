@@ -12,12 +12,12 @@ object TimeUtil {
 
         val now = LocalDateTime.now()
         val diffMinutes = ChronoUnit.MINUTES.between(dateTime, now)
-
-        return if (diffMinutes >= 60) {
-            val diffHours = diffMinutes / 60
-            "$diffHours 시간 전"
+        val _diffMinutes = diffMinutes - 539
+        return if (_diffMinutes >= 60) {
+            val realDiffHours = _diffMinutes / 60
+            "$realDiffHours 시간 전"
         } else {
-            "$diffMinutes 분 전"
+            "$_diffMinutes 분 전"
         }
     }
 }

@@ -14,8 +14,6 @@ import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ActivityCommentBin
 import com.solosol.a32th_sopt_sopkathon_7_android.extension.showToast
 import com.solosol.a32th_sopt_sopkathon_7_android.sample.CommentAdapter
 import kotlinx.coroutines.launch
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 
 
 class CommentActivity : BaseViewBindingActivity<ActivityCommentBinding>() {
@@ -23,8 +21,6 @@ class CommentActivity : BaseViewBindingActivity<ActivityCommentBinding>() {
     private val commentAdapter = CommentAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        hidekeyboard()
 
         binding.btReport.setOnClickListener{
             showToast("신고 완료")
@@ -35,33 +31,36 @@ class CommentActivity : BaseViewBindingActivity<ActivityCommentBinding>() {
             layoutManager = LinearLayoutManager(this@CommentActivity)
         }
 
-        binding.btRegister.setOnClickListener{
-            lifecycleScope.launch {
-                val response = soptService.getDetailArticle(postId)
-                if (response.isSuccessful) {
-                    binding.tvTitlePost.text = response.body()?.data?.title ?:""
-                    binding.tvArticle.text = response.body()?.data?.content ?:""
-                    commentAdapter.submitList(response.body()?.data?.comments)
-                    binding.tvCommentCnt.text = response.body()?.data?.comments?.size.toString()?:"0"
-                    binding.tvShowCommentCnt.text =response.body()?.data?.comments?.size.toString()?:"0"
-                    binding.tvThumbCnt.text = response.body()?.data?.likeCnt.toString()?:"0"
         binding.btBack.setOnClickListener {
             finish()
         }
 
-                } else {
-                    showToast("에러 발생")
-                }
-            }
+        binding.btRegister.setOnClickListener {
+            hidekeyboard()
+        }
 
+        lifecycleScope.launch {
+            val response = soptService.getDetailArticle(postId)
+            if (response.isSuccessful) {
+                binding.tvTitlePost.text = response.body()?.data?.title ?:""
+                binding.tvArticle.text = response.body()?.data?.content ?:""
+                commentAdapter.submitList(response.body()?.data?.comments)
+                binding.tvCommentCnt.text = response.body()?.data?.comments?.size.toString()?:"0"
+                binding.tvShowCommentCnt.text =response.body()?.data?.comments?.size.toString()?:"0"
+                binding.tvThumbCnt.text = response.body()?.data?.likeCnt.toString()?:"0"
+            } else {
+                showToast("에러 발생")
+            }
+        }
+
+        binding.btRegister.setOnClickListener{
             lifecycleScope.launch{
-                val comment_response = soptService.postCreateComment(postId, CreateCommentRequest(binding.etWriteComment.toString()))
+                val comment_response = soptService.postCreateComment(postId, CreateCommentRequest(binding.etWriteComment.text.toString()))
                 if(comment_response.isSuccessful) {
                     val response = soptService.getDetailArticle(postId)
                     commentAdapter.submitList(response.body()?.data?.comments)
                 }
             }
-
             binding.etWriteComment.text = null
         }
     }
@@ -72,14 +71,12 @@ class CommentActivity : BaseViewBindingActivity<ActivityCommentBinding>() {
     }
 
     private fun hidekeyboard() {
-        if (this != null) {
-            val imm: InputMethodManager =
-                this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(
-                this.currentFocus?.windowToken,
-                InputMethodManager.HIDE_NOT_ALWAYS
-            )
-        }
+        val imm: InputMethodManager =
+            this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(
+            this.currentFocus?.windowToken,
+            InputMethodManager.HIDE_NOT_ALWAYS
+        )
     }
 
     private fun closeBtnClickListener() {

@@ -225,6 +225,7 @@
         app:layout_constraintRight_toRightOf="@+id/et_write_comment"
         app:layout_constraintTop_toTopOf="@+id/et_write_comment"
         tools:ignore="SpeakableTextPresentCheck"
+        android:layout_marginEnd="20dp"
         tools:layout_editor_absoluteX="287dp"
         tools:layout_editor_absoluteY="588dp" />
 

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.DetailArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ItemCommentBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.util.DiffCallback
+import com.solosol.a32th_sopt_sopkathon_7_android.util.TimeUtil
 
 
 class CommentAdapter :
@@ -29,7 +30,10 @@ class CommentAdapter :
     }
 
     class CommentViewHolder(private val binding: ItemCommentBinding) : ViewHolder(binding.root) {
-        fun bind(item: DetailArticleResponse.Data.Comment) {}
+        fun bind(item: DetailArticleResponse.Data.Comment) {
+            binding.tvTextComment.text = item.content
+            binding.tvCommentTime.text = TimeUtil.calculateTimeDifference(item.createdAt ?:"")
+        }
 
         inner class CommentViewHolder(private val binding: ItemCommentBinding) :
             ViewHolder(binding.root) {

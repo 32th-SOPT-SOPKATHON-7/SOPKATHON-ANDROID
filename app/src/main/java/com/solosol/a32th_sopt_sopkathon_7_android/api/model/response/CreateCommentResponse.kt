@@ -23,6 +23,8 @@ data class CreateCommentResponse(
         val content: String? = null,
         @SerialName("createdAt")
         val createdAt: String? = null,
+        @SerialName("updatedAt")
+        val updatedAt: String? = null,
         @SerialName("postId")
         val postId: Int? = null
     )

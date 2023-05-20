@@ -24,6 +24,8 @@ class PostActivity : BaseViewBindingActivity<ActivityPostBinding>() {
         closeBtnClickListener()
         checkBtnClickListener()
         hidekeyboard()
+
+        binding.tvPostStationName.text = intent.getStringExtra("subwayName")
     }
 
     private fun closeBtnClickListener() {
@@ -39,7 +41,7 @@ class PostActivity : BaseViewBindingActivity<ActivityPostBinding>() {
                     with(binding) {
                         CreateArticleRequest(
                             etPostContent.text.toString(),
-                            intent.getStringExtra("subwayName").toString(),
+                            intent.getStringExtra("subwayName"),
                             etPostTitle.text.toString()
                         )
                     }
