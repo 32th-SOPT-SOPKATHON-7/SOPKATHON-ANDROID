@@ -6,4 +6,5 @@
     <string name="post_top_app_bar_writing">글쓰기</string>
     <string name="post_input_title_hint">제목을 입력해주세요</string>
     <string name="post_input_content_hint">내용을 입력해주세요</string>
+    <string name="search_plus">+</string>
 </resources>

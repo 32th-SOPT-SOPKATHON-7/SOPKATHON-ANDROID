@@ -13,13 +13,13 @@ object ApiFactory {
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("43.200.3.61:8080")
+            .baseUrl("http://43.200.3.61:8080")
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .client(okHttpClient)
             .build()
     }
 
-    private val okHttpClient: OkHttpClient =
+    val okHttpClient: OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
@@ -33,6 +33,6 @@ object ApiFactory {
 
     inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
 
-    val soptService: SoptService = retrofit.create()
+    val soptService:SoptService = retrofit.create()
 
 }

@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class NewArticleResponse(
     @SerialName("data")
-    val `data`: List<Data?>? = null,
+    val data: List<Data?>? = null,
     @SerialName("message")
     val message: String? = null,
     @SerialName("status")

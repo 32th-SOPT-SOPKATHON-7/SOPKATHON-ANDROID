@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ItemSampleBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.util.DiffCallback
 
+/*
 
 class SampleAdapter : ListAdapter<SampleData, SampleAdapter.SampleViewHolder>(SampleDiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder {
@@ -27,4 +28,4 @@ class SampleAdapter : ListAdapter<SampleData, SampleAdapter.SampleViewHolder>(Sa
         private val SampleDiffCallback =
             DiffCallback<SampleData>(id = { old, new -> old.sample == new.sample})
     }
-}
+}*/
