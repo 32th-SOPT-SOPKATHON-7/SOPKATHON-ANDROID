@@ -8,14 +8,14 @@ import androidx.room.Query
 @Dao
 interface SubwayDao {
     @Insert
-    fun insert(subwayData:SubwayData)
+    suspend fun insert(subwayData:SubwayData)
 
     @Delete
-    fun delete(subwayData:SubwayData)
+    suspend fun delete(subwayData:SubwayData)
 
     @Query("SELECT * FROM SubwayData")
-    fun selectAllSubway() : MutableList<SubwayData>
+    suspend fun selectAllSubway() : MutableList<SubwayData>
 
     @Query("SELECT * FROM SubwayData WHERE name=:name")
-    fun selectOneSubway(name:String) : SubwayData?
+    suspend fun selectOneSubway(name:String) : SubwayData
 }

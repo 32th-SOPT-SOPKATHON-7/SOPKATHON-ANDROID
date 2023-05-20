@@ -53,6 +53,6 @@
     <color name="white_100_20">#33FFFFFF</color>
 
     <color name="main_blue">#2A62DD</color>
-    <!-- DongPoBlueScale -->
-    <color name="dong_po_blue">#2A62DD</color>
+
+    <color name="green_3">#6FCF97</color>
 </resources>

@@ -32,6 +32,10 @@ class CommentActivity: BaseViewBindingActivity<ActivityCommentBinding>() {
             layoutManager = LinearLayoutManager(this@CommentActivity)
         }
 
+        binding.btBack.setOnClickListener {
+            finish()
+        }
+
         lifecycleScope.launch {
             val response = soptService.getDetailArticle(postId)
             if (response.isSuccessful) {

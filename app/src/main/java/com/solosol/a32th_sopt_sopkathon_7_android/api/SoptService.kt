@@ -23,7 +23,7 @@ interface SoptService {
         @Query("stationName") stationName:String
     ):Response<TrendArticleResponse>
 
-    @GET("/api/posts/hot")
+    @GET("/api/posts/new")
     suspend fun getNewList(
         @Query("stationName") stationName:String
     ):Response<NewArticleResponse>

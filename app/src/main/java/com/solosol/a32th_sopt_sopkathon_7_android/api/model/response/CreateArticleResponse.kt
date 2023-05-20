@@ -21,8 +21,10 @@ data class CreateArticleResponse(
         val content: String? = null,
         @SerialName("likeCnt")
         val likeCnt: Int? = null,
-        @SerialName("minute")
-        val minute: Int? = null,
+        @SerialName("createdAt")
+        val createdAt: String? = null,
+        @SerialName("updatedAt")
+        val updatedAt: String? = null,
         @SerialName("postId")
         val postId: Int? = null,
         @SerialName("stationName")

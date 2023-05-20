@@ -27,21 +27,25 @@ data class DetailArticleResponse(
         val likeCnt: Int? = null,
         @SerialName("postId")
         val postId: Int? = null,
-        @SerialName("stationId")
-        val stationId: Int? = null,
+        @SerialName("stationName")
+        val stationName: String? = null,
         @SerialName("title")
         val title: String? = null,
-        @SerialName("updateAt")
+        @SerialName("updatedAt")
         val updateAt: String? = null
     ) {
         @Serializable
         data class Comment(
+            @SerialName("postId")
+            val postId: Int? = null,
             @SerialName("commentId")
             val commentId: Int? = null,
             @SerialName("content")
             val content: String? = null,
             @SerialName("createdAt")
-            val createdAt: String? = null
+            val createdAt: String? = null,
+            @SerialName("updatedAt")
+            val updatedAt: String? = null
         )
     }
 }

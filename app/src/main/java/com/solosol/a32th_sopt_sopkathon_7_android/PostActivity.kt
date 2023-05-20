@@ -1,6 +1,7 @@
 package com.solosol.a32th_sopt_sopkathon_7_android
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.inputmethod.InputMethodManager
@@ -27,11 +28,7 @@ class PostActivity : BaseViewBindingActivity<ActivityPostBinding>() {
 
     private fun closeBtnClickListener() {
         binding.ibPostTopAppBarClose.setOnClickListener {
-            this.finish()
-//            val intent = Intent(this, SubwaySearchActivity::class.java).apply {
-//                putExtra("stationName", binding.tvPostStationName.text.toString())
-//            }
-//            startActivity(intent)
+            finish()
         }
     }
 
@@ -42,7 +39,7 @@ class PostActivity : BaseViewBindingActivity<ActivityPostBinding>() {
                     with(binding) {
                         CreateArticleRequest(
                             etPostContent.text.toString(),
-                            intent.getStringExtra("stationName").toString(),
+                            intent.getStringExtra("subwayName").toString(),
                             etPostTitle.text.toString()
                         )
                     }

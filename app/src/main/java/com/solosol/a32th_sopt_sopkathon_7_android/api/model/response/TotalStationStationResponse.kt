@@ -19,11 +19,13 @@ data class TotalStationStationResponse(
     data class Data(
         @SerialName("hotPost")
         val hotPost: HotPost? = null,
-        @SerialName("stationLikeList")
-        val stationLikeList: List<StationLikeList?>? = null
+        @SerialName("stations")
+        val stations: List<Stations?>? = null
     ) {
         @Serializable
         data class HotPost(
+            @SerialName("postId")
+            val postId :Int,
             @SerialName("createdAt")
             val createdAt: String? = null,
             @SerialName("title")
@@ -31,7 +33,7 @@ data class TotalStationStationResponse(
         )
 
         @Serializable
-        data class StationLikeList(
+        data class Stations(
             @SerialName("stationName")
             val stationName:String? = null,
             val totalLikeCnt:Int? = null
