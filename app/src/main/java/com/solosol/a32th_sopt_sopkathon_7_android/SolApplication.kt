@@ -10,7 +10,6 @@ class SolApplication : Application() {
             private set
     }
 
-
     override fun onCreate() {
         super.onCreate()
         appContext = this
