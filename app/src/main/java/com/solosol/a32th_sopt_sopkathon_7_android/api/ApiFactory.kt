@@ -33,6 +33,6 @@ object ApiFactory {
 
     inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
 
-    private val soptService:SoptService = retrofit.create()
+    val soptService:SoptService = retrofit.create()
 
 }
