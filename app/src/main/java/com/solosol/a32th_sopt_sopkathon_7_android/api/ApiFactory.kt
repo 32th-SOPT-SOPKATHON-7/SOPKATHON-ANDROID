@@ -11,7 +11,7 @@ import retrofit2.create
 
 object ApiFactory {
 
-    val retrofit:Retrofit by lazy {
+    val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl("http://43.200.3.61:8080")
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
