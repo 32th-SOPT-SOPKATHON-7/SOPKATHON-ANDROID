@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.DetailArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ItemCommentBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.util.DiffCallback
 
 
-class CommentAdapter : ListAdapter<CommentData, CommentAdapter.CommentViewHolder>(
+class CommentAdapter : ListAdapter<DetailArticleResponse.Data.Comment, CommentAdapter.CommentViewHolder>(
     CommentDiffCallback
 ) {
 
@@ -20,14 +21,14 @@ class CommentAdapter : ListAdapter<CommentData, CommentAdapter.CommentViewHolder
         holder.bind(currentList[position])
     }
 
-    class CommentViewHolder(private val binding: ItemCommentBinding) : ViewHolder(binding.root) {
-        fun bind(item: CommentData) {
-
+   inner class CommentViewHolder(private val binding: ItemCommentBinding) : ViewHolder(binding.root) {
+        fun bind(item: DetailArticleResponse.Data.Comment) {
+                binding.tvTextComment.text = item.content
         }
     }
 
     companion object {
         private val CommentDiffCallback =
-            DiffCallback<CommentData>(id = { old, new -> old.Comment == new.Comment})
+            DiffCallback<DetailArticleResponse.Data.Comment>(id = { old, new -> old.commentId == new.commentId})
     }
 }
