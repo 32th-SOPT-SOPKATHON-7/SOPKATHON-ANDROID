@@ -1,9 +1,11 @@
 # SOPKATHON-ANDROID
 그 누가 대안드로이드의 향해를 막을 수 있는가...
 
+<br/>
+
 <div align="center">
 
-<h2> 지역 문제를 빠르게 접하고 공유할 수 있는 서비스 - 동네 포차 </h2>
+<h2> 지역 문제를 빠르게 접하고 공유할 수 있는 서비스 - 동네 포착 </h2>
 
 </div>
 
@@ -59,16 +61,18 @@
             Android Large - 1 (지도뷰) <br/>
       </td>
        <td>
-            Android Large - 2 (게시글 목록뷰) <br/>
+           Android Large - 4 (게시글 작성뷰) <br/>
+      </td>
+       <td>
+           Android Large - 2 (게시글 목록뷰) <br/>
       </td>
        <td>
             Android Large - 3 (게시글 상세뷰) <br/>
       </td>
-       <td>
-            Android Large - 4 (게시글 작성뷰)<br/>
-      </td>
     </tr>
 </table>
+
+<br/>
 
 <h2>  📄 컨벤션 및 브랜치 전략 </h2>
 
@@ -76,12 +80,12 @@
 
 <br/>
 
-<br/>
-
 <h2> 📸팀원끼리 응원의 메시지를 담은 사진 촬영 </h2>
 <img src="https://github.com/jihyunniiii/BOJ/assets/103172971/49b2cd98-5624-4696-8237-0bcfff5da7d3"  alt="솝커톤-응원사진" />
 
 결과가 어떻든 우리는 이 과정을 통해 성장할 것이고 이미 성장했습니다. 즐겨봐요!! 대 안드로이드 화이팅!!!
+
+<br/>
 
 <h2> 💡솝커톤을 진행하며 구현하기 어려웠던 것에 대한 문제정의와 해결방안 </h2>
 
