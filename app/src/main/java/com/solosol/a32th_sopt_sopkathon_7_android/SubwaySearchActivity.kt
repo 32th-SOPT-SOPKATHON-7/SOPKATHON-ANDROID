@@ -15,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.NullPointerException
 
-class SubwaySearchActivity: BaseViewBindingActivity<ActivitySearchBinding> (){
+class SubwaySearchActivity: BaseViewBindingActivity<ActivitySearchBinding>(){
 
     private lateinit var roomDB : AppDatabase
     private val dataList:ArrayList<SubwayData> = arrayListOf()

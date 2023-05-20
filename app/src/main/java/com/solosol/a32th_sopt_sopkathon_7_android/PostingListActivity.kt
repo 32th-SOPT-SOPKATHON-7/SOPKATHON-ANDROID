@@ -14,7 +14,6 @@ class PostingListActivity : BaseViewBindingActivity<ActivityPostingListBinding>(
         binding.tvSubwayName.text = subwayName + "역"
         val postVPAdapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = postVPAdapter
-
         val tabTitleArray = arrayOf(
             "트렌드","최신순"
         )
