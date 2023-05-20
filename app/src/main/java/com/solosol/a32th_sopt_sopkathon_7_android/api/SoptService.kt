@@ -2,6 +2,7 @@ package com.solosol.a32th_sopt_sopkathon_7_android.api
 
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateArticleRequest
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateCommentRequest
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.DetailArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.NewArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TotalStationStationResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TrendArticleResponse
@@ -34,7 +35,7 @@ interface SoptService {
     @GET("/api/posts/detail/{postId}")
     suspend fun getDetailArticle(
         @Path("postId") postId:Int
-    ):Response<TotalStationStationResponse>
+    ):Response<DetailArticleResponse>
 
     @POST("/api/comments/create/{postId}")
     suspend fun postCreateComment(
