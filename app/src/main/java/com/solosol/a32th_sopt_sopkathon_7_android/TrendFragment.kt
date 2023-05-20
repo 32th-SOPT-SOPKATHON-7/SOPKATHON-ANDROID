@@ -1,25 +1,50 @@
 package com.solosol.a32th_sopt_sopkathon_7_android
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.solosol.a32th_sopt_sopkathon_7_android.adapter.TrendRVAdapter
+import com.solosol.a32th_sopt_sopkathon_7_android.api.ApiFactory
+import com.solosol.a32th_sopt_sopkathon_7_android.api.ApiFactory.soptService
+import com.solosol.a32th_sopt_sopkathon_7_android.api.SoptService
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.NewArticleResponse
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TrendArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.base.BaseViewBindingFragment
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.FragmentTrendBinding
+import kotlinx.coroutines.launch
 
-class TrendFragment : BaseViewBindingFragment<FragmentTrendBinding>(){
+class TrendFragment : BaseViewBindingFragment<FragmentTrendBinding>() {
+    var subwayName = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setRVAdapter()
+        lifecycleScope.launch{
+            setRVData()
+        }
     }
+
     override fun setBinding(layoutInflater: LayoutInflater): FragmentTrendBinding {
         return FragmentTrendBinding.inflate(layoutInflater)
     }
-    private fun setRVAdapter(){
-        with(binding){
-            rvTrend.adapter = TrendRVAdapter()
-            rvTrend.layoutManager= LinearLayoutManager(requireContext())
+
+    private fun setRVAdapter(itemList:List<TrendArticleResponse.Data?>?) {
+        with(binding) {
+            rvTrend.adapter = TrendRVAdapter(itemList)
+            rvTrend.layoutManager = LinearLayoutManager(requireContext())
+        }
+    }
+
+    private suspend fun setRVData() {
+        lifecycleScope.launch {
+            val response = soptService.getTrendList(subwayName)
+            if (response.isSuccessful) {
+                val itemList:List<TrendArticleResponse.Data?>? = response.body()?.data
+                setRVAdapter(itemList)
+            } else {
+                Log.e("error",response.errorBody().toString())
+            }
         }
     }
 }

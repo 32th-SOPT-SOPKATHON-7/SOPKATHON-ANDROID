@@ -12,6 +12,8 @@ class PostingListActivity : BaseViewBindingActivity<ActivityPostingListBinding>(
         super.onCreate(savedInstanceState)
         val subwayName = intent.getStringExtra("subway_name")
         binding.tvSubwayName.text = subwayName + "역"
+        TrendFragment().subwayName= subwayName.toString()
+        NewFragment().subwayName = subwayName.toString()
         val postVPAdapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = postVPAdapter
         val tabTitleArray = arrayOf(
@@ -27,5 +29,6 @@ class PostingListActivity : BaseViewBindingActivity<ActivityPostingListBinding>(
     }
 
     private fun getSubwayName(){
+
     }
 }
