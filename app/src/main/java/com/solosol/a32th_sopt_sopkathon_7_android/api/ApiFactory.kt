@@ -7,6 +7,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.create
 
 object ApiFactory {
 
@@ -31,5 +32,7 @@ object ApiFactory {
             ).build()
 
     inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
+
+    private val soptService:SoptService = retrofit.create()
 
 }
