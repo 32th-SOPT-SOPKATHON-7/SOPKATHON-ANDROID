@@ -3,7 +3,9 @@ package com.solosol.a32th_sopt_sopkathon_7_android.api
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateArticleRequest
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateCommentRequest
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.DetailArticleResponse
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.NewArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TotalStationStationResponse
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.TrendArticleResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -18,12 +20,12 @@ interface SoptService {
     @GET("/api/posts/trend")
     suspend fun getTrendList(
         @Query("stationName") stationName:String
-    ):Response<TotalStationStationResponse>
+    ):Response<TrendArticleResponse>
 
     @GET("/api/posts/hot")
     suspend fun getNewList(
         @Query("stationName") stationName:String
-    ):Response<TotalStationStationResponse>
+    ):Response<NewArticleResponse>
 
     @POST("/api/posts/create")
     suspend fun postCreateArticle(
