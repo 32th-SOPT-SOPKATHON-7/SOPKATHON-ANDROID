@@ -3,10 +3,13 @@ package com.solosol.a32th_sopt_sopkathon_7_android
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import androidx.lifecycle.lifecycleScope
 import com.solosol.a32th_sopt_sopkathon_7_android.base.BaseViewBindingActivity
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ActivitySearchBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.roomdb.AppDatabase
 import com.solosol.a32th_sopt_sopkathon_7_android.roomdb.SubwayData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SubwaySearchActivity: BaseViewBindingActivity<ActivitySearchBinding> (){
 
@@ -33,6 +36,8 @@ class SubwaySearchActivity: BaseViewBindingActivity<ActivitySearchBinding> (){
     }
 
     private fun getData(){
-        Log.e("data" ,roomDB.subwayDao().selectAllSubway().toString() ) // get한거 보여주는 log 찍은거.
+        lifecycleScope.launch(Dispatchers.IO) {
+            Log.e("data" ,roomDB.subwayDao().selectAllSubway().toString() ) // get한거 보여주는 log 찍은거.
+        }
     }
 }

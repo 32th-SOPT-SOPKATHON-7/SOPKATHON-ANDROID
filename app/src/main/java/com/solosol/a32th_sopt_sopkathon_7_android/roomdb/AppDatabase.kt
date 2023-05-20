@@ -5,20 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [SubwayData::class],version=1)
-abstract class AppDatabase : RoomDatabase() {
+@Database(entities = [SubwayData::class], version = 1) abstract class AppDatabase : RoomDatabase() {
     abstract fun subwayDao(): SubwayDao
 
-    companion object{
-        private var appDatabase : AppDatabase? = null
+    companion object {
+        private var appDatabase: AppDatabase? = null
+
         @Synchronized
-        fun getInstance(context : Context) : AppDatabase?{
-            if (appDatabase == null){
+        fun getInstance(context: Context): AppDatabase? {
+            if (appDatabase == null) {
                 synchronized(AppDatabase::class.java) {
                     appDatabase = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
-                        "app-database").allowMainThreadQueries().build()
+                        "station.db"
+                    ).createFromAsset("station.db").build()
                 }
             }
             return appDatabase
