@@ -9,7 +9,6 @@ import com.solosol.a32th_sopt_sopkathon_7_android.util.DiffCallback
 
 
 class SampleAdapter : ListAdapter<SampleData, SampleAdapter.SampleViewHolder>(SampleDiffCallback) {
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder {
         return SampleViewHolder(ItemSampleBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
