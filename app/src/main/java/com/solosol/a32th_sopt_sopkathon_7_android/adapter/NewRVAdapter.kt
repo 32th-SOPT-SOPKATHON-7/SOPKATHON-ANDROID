@@ -1,6 +1,7 @@
 package com.solosol.a32th_sopt_sopkathon_7_android.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,15 @@ class NewRVAdapter(_itemList:List<NewArticleResponse.Data?>?) : ListAdapter<NewA
         return NewViewHolder(ItemPostBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    interface OnItemClickListener{
+        fun onItemClick(v: View, position:Int)
+    }
+
+    fun setItemClickListener(onItemClickListener:OnItemClickListener){
+        this.itemClickListener = onItemClickListener
+    }
+
+    private lateinit var itemClickListener : OnItemClickListener
     override fun onBindViewHolder(holder: NewViewHolder, position: Int) {
         holder.bind(itemList[position]!!)
     }

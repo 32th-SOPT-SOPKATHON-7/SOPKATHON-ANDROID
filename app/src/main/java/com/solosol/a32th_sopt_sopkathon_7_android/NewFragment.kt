@@ -1,5 +1,6 @@
 package com.solosol.a32th_sopt_sopkathon_7_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -28,7 +29,16 @@ class NewFragment:BaseViewBindingFragment<FragmentNewBinding>() {
 
     private fun setRVAdapter(itemList:List<NewArticleResponse.Data?>?){
         with(binding){
-            rvNew.adapter = NewRVAdapter(itemList)
+            rvNew.adapter = NewRVAdapter(itemList).apply{
+                this.setItemClickListener(object : NewRVAdapter.OnItemClickListener{
+                    override fun onItemClick(v: View, position: Int) {
+                        val postId = itemList?.get(position)?.postId
+                   /*     val intent
+                        startActivity(intent)    */
+                    }
+                } )
+
+            }
             rvNew.layoutManager= LinearLayoutManager(requireContext())
         }
     }

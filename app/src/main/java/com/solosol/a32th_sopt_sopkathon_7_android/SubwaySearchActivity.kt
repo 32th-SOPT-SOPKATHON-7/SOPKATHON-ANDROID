@@ -1,9 +1,11 @@
 package com.solosol.a32th_sopt_sopkathon_7_android
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.solosol.a32th_sopt_sopkathon_7_android.base.BaseViewBindingActivity
@@ -23,6 +25,7 @@ class SubwaySearchActivity: BaseViewBindingActivity<ActivitySearchBinding>(){
         super.onCreate(savedInstanceState)
         roomDB = AppDatabase.getInstance(this@SubwaySearchActivity)!!
         getSubwayData()
+        hidekeyboard()
     }
 
     override fun setBinding(layoutInflater: LayoutInflater): ActivitySearchBinding {
@@ -54,6 +57,17 @@ class SubwaySearchActivity: BaseViewBindingActivity<ActivitySearchBinding>(){
     private fun getData(){
         lifecycleScope.launch(Dispatchers.IO) {
             Log.e("data" ,roomDB.subwayDao().selectAllSubway().toString() ) // get한거 보여주는 log 찍은거.
+        }
+    }
+
+    private fun hidekeyboard() {
+        if (this != null) {
+            val imm: InputMethodManager =
+                this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(
+                this.currentFocus?.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
         }
     }
 }
