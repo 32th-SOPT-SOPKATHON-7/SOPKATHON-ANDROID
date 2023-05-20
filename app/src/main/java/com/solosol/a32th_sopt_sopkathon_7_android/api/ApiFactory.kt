@@ -11,7 +11,7 @@ import retrofit2.create
 
 object ApiFactory {
 
-    val retrofit:Retrofit by lazy {
+    val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl("43.200.3.61:8080")
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
@@ -33,6 +33,6 @@ object ApiFactory {
 
     inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
 
-    private val soptService:SoptService = retrofit.create()
+    val soptService: SoptService = retrofit.create()
 
 }
