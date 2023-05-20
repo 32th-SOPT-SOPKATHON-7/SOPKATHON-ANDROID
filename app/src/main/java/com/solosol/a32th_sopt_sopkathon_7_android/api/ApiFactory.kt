@@ -13,7 +13,7 @@ object ApiFactory {
 
     val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://13.125.255.32:8080")
+            .baseUrl("http://3.37.234.85:8080")
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .client(okHttpClient)
             .build()
