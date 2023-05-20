@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.solosol.a32th_sopt_sopkathon_7_android.api.ApiFactory.soptService
+import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateCommentRequest
 import com.solosol.a32th_sopt_sopkathon_7_android.base.BaseViewBindingActivity
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ActivityCommentBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.extension.showToast
@@ -34,19 +35,34 @@ class CommentActivity : BaseViewBindingActivity<ActivityCommentBinding>() {
             layoutManager = LinearLayoutManager(this@CommentActivity)
         }
 
-        lifecycleScope.launch {
-            val response = soptService.getDetailArticle(postId)
-            if (response.isSuccessful) {
-                binding.tvTitlePost.text = response.body()?.data?.title ?:""
-                binding.tvArticle.text = response.body()?.data?.content ?:""
-                commentAdapter.submitList(response.body()?.data?.comments)
+        binding.btRegister.setOnClickListener{
+            lifecycleScope.launch {
+                val response = soptService.getDetailArticle(postId)
+                if (response.isSuccessful) {
+                    binding.tvTitlePost.text = response.body()?.data?.title ?:""
+                    binding.tvArticle.text = response.body()?.data?.content ?:""
+                    commentAdapter.submitList(response.body()?.data?.comments)
+                    binding.tvCommentCnt.text = response.body()?.data?.comments?.size.toString()?:"0"
+                    binding.tvShowCommentCnt.text =response.body()?.data?.comments?.size.toString()?:"0"
+                    binding.tvThumbCnt.text = response.body()?.data?.likeCnt.toString()?:"0"
 
-            } else {
-                showToast("에러 발생")
+                } else {
+                    showToast("에러 발생")
+                }
             }
-        }
 
+            lifecycleScope.launch{
+                val comment_response = soptService.postCreateComment(postId, CreateCommentRequest(binding.etWriteComment.toString()))
+                if(comment_response.isSuccessful) {
+                    val response = soptService.getDetailArticle(postId)
+                    commentAdapter.submitList(response.body()?.data?.comments)
+                }
+            }
+
+            binding.etWriteComment.text = null
+        }
     }
+
 
     override fun setBinding(layoutInflater: LayoutInflater): ActivityCommentBinding {
         return ActivityCommentBinding.inflate(layoutInflater)
