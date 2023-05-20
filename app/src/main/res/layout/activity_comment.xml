@@ -9,15 +9,15 @@
         android:id="@+id/img_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/ig_bar"
+        android:background="@drawable/img_header"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/bt_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/bt_chevron_left"
         android:padding="20dp"
-        android:src="@drawable/ig_chevron_left"
         app:layout_constraintBottom_toBottomOf="@+id/img_appbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img_appbar"
@@ -29,7 +29,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/img_appbar"
-        app:layout_constraintLeft_toRightOf="@+id/bt_back"
+        app:layout_constraintLeft_toLeftOf="@+id/img_appbar"
+        app:layout_constraintRight_toRightOf="@+id/img_appbar"
         app:layout_constraintTop_toTopOf="@+id/img_appbar"
         tools:text="역이름" />
 
@@ -37,8 +38,10 @@
         android:id="@+id/tv_title_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="1dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_appbar"
         tools:text="제목제목제목" />
@@ -47,31 +50,78 @@
         android:id="@+id/tv_post_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
-        app:layout_constraintBottom_toBottomOf="@id/tv_title_post"
-        app:layout_constraintLeft_toRightOf="@+id/tv_title_post"
-        app:layout_constraintTop_toBottomOf="@id/img_appbar"
-        tools:layout_editor_absoluteY="4dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="1dp"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_article"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_post"
         tools:text="시간시간시간" />
 
     <TextView
+        android:id="@+id/tv_article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_post"
-        tools:text="본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_post_time"
+        tools:text="본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문본문" />
 
+    <ImageButton
+        android:id="@+id/img_btn_like"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_like"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/iv_count_comment"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article" />
+
+    <ImageButton
+        android:id="@+id/bt_count_comment"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bt_count_comment"
+        android:padding="10dp"
+        app:layout_constraintLeft_toRigtOf="@id/img_btn_like"
+        app:layout_constraintStart_toEndOf="@+id/img_btn_like"
+        app:layout_constraintTop_toBottomOf="@id/tv_article" />
+
+    <ImageButton
+        android:id="@+id/img_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/bt_report"
+        app:layout_constraintBottom_toTopOf="@+id/rv_comment"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article"
+        app:layout_constraintVertical_bias="0.179" />
+
+    <ImageView
+        android:id="@+id/iv_count_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:src="@drawable/tv_show_count_comment"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/rv_comment"
+        app:layout_constraintTop_toBottomOf="@+id/img_btn_like" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="4dp"
+        android:layout_margin="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_count_comment"
         tools:listitem="@layout/item_comment" />
 
     <EditText
@@ -79,10 +129,11 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/et_border"
-        android:hint="댓글입력창"
-        android:padding="10dp"
+        android:hint="댓글을 입력해주세요"
         android:inputType="text"
+        android:padding="10dp"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_comment"
         app:layout_constraintVertical_bias="1.0"
@@ -90,8 +141,8 @@
 
     <ImageButton
         android:id="@+id/bt_register"
-        android:layout_width="120dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/bt_register"
         app:layout_constraintBottom_toBottomOf="@+id/et_write_comment"
         app:layout_constraintRight_toRightOf="@+id/et_write_comment"

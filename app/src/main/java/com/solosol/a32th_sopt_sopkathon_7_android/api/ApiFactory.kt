@@ -19,7 +19,7 @@ object ApiFactory {
             .build()
     }
 
-    private val okHttpClient: OkHttpClient =
+    val okHttpClient: OkHttpClient =
         OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
