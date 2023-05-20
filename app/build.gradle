@@ -93,4 +93,7 @@ dependencies {
     //lifeCycle
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
 
+    //Clock
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+
 }

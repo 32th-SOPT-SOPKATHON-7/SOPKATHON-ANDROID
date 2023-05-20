@@ -6,11 +6,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:theme="@style/Theme.AppCompat"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/Theme.32thSOPTSOPKATHON7ANDROID"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
@@ -21,8 +21,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SubwaySearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".CommentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity android:name=".SubwaySearchActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".PostingListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>
