@@ -13,6 +13,10 @@
         android:theme="@style/Theme.32thSOPTSOPKATHON7ANDROID"
         tools:targetApi="31">
         <activity
+            android:name=".PostActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">32th-SOPT-SOPKATHON-7-ANDROID</string>
+    <string name="post_writing_success">글 작성에 성공하였습니다.</string>
+    <string name="post_writing_fail">글 작성에 실패하였습니다.</string>
+    <string name="post_server_communication_fail">서버와의 통신이 원활하지 않습니다.</string>
+    <string name="post_top_app_bar_writing">글쓰기</string>
+    <string name="post_input_title_hint">제목을 입력하세요.</string>
+    <string name="post_input_content_hint">내용을 입력하세요.</string>
 </resources>

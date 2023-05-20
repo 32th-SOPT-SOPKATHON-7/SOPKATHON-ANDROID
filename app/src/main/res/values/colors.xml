@@ -5,13 +5,24 @@
     <color name="purple_40">#C6A9FF</color>
     <color name="purple_dim_100">#282039</color>
     <!-- GrayScale -->
+    <color name="gray_0">#FFFFFF</color>
     <color name="gray_10">#F7F8FA</color>
     <color name="gray_20">#EEEFF1</color>
     <color name="gray_30">#CED1D2</color>
     <color name="gray_40">#C0C5C9</color>
+    <color name="gray_50">#FAFAFA</color>
     <color name="gray_60">#989BA0</color>
     <color name="gray_80">#808388</color>
-    <color name="gray_100">#606265</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+    <color name="gray_1000">#000000</color>
     <!-- WhiteScale -->
     <color name="white_100">#FCFCFC</color>
     <color name="real_white">#FFFFFF</color>
@@ -40,4 +51,6 @@
     <color name="white_100_50">#80FFFFFF</color>
     <color name="white_100_30">#4DFFFFFF</color>
     <color name="white_100_20">#33FFFFFF</color>
+    <!-- DongPoBlueScale -->
+    <color name="dong_po_blue">#2A62DD</color>
 </resources>
