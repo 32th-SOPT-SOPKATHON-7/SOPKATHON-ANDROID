@@ -17,5 +17,5 @@ interface SubwayDao {
     fun selectAllSubway() : MutableList<SubwayData>
 
     @Query("SELECT * FROM SubwayData WHERE name=:name")
-    fun selectOneSubway(name:String) : SubwayData
+    fun selectOneSubway(name:String) : SubwayData?
 }

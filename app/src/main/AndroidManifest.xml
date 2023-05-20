@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         tools:targetApi="31">
         <activity
+            android:name=".PostActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
@@ -21,8 +25,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SubwaySearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".CommentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity android:name=".SubwaySearchActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".PostingListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>

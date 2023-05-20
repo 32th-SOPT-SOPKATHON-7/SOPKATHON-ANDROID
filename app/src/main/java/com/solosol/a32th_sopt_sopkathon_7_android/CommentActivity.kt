@@ -5,56 +5,44 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.solosol.a32th_sopt_sopkathon_7_android.api.ApiFactory.soptService
-import com.solosol.a32th_sopt_sopkathon_7_android.api.model.request.CreateCommentRequest
-import com.solosol.a32th_sopt_sopkathon_7_android.api.model.response.DetailArticleResponse
 import com.solosol.a32th_sopt_sopkathon_7_android.base.BaseViewBindingActivity
 import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ActivityCommentBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.extension.showToast
 import com.solosol.a32th_sopt_sopkathon_7_android.sample.CommentAdapter
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 
 
 class CommentActivity : BaseViewBindingActivity<ActivityCommentBinding>() {
-    val postId: Int = 1
-    val commentAdapter = CommentAdapter()
 
+    private val commentAdapter = CommentAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         hidekeyboard()
 
-        binding.btReport.setOnClickListener {
-            showToast("신고완료")
+        binding.btReport.setOnClickListener{
+            showToast("신고 완료")
+        }
+        val postId = intent.getIntExtra("postId", 0)
+        binding.rvComment.apply {
+            adapter = commentAdapter
+            layoutManager = LinearLayoutManager(this@CommentActivity)
         }
 
         lifecycleScope.launch {
             val response = soptService.getDetailArticle(postId)
             if (response.isSuccessful) {
-                binding.tvTitlePost.text = response.body()?.data?.title
-                binding.tvPostTime.text = response.body()?.data?.createdAt?.substring(0 until 10)
-                binding.tvArticle.text = response.body()?.data?.content
-                val commentList: List<DetailArticleResponse.Data.Comment?>? =
-                    response.body()?.data?.comments
-                commentAdapter.submitList(commentList)
-            } else {
-                showToast("서버통신 실패")
-            }
-        }
+                binding.tvTitlePost.text = response.body()?.data?.title ?:""
+                binding.tvArticle.text = response.body()?.data?.content ?:""
+                commentAdapter.submitList(response.body()?.data?.comments)
 
-        lifecycleScope.launch {
-            val response = soptService.getDetailArticle(postId)
-            val comment_response = soptService.postCreateComment(postId, CreateCommentRequest(binding.etWriteComment.text.toString()))
-            if (comment_response.isSuccessful){
-                soptService.getDetailArticle(postId)
-                val commentList: List<DetailArticleResponse.Data.Comment?>? =
-                    response.body()?.data?.comments
-                commentAdapter.submitList(commentList)
-            }
-            else{
-                showToast("서버통신 실패")
+            } else {
+                showToast("에러 발생")
             }
         }
 

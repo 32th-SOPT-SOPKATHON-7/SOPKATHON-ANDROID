@@ -9,7 +9,9 @@ import com.solosol.a32th_sopt_sopkathon_7_android.databinding.ItemCommentBinding
 import com.solosol.a32th_sopt_sopkathon_7_android.util.DiffCallback
 
 
-class CommentAdapter : ListAdapter<DetailArticleResponse.Data.Comment, CommentAdapter.CommentViewHolder>(CommentDiffCallback) {
+class CommentAdapter : ListAdapter<DetailArticleResponse.Data.Comment, CommentAdapter.CommentViewHolder>(
+    CommentDiffCallback
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
         return CommentViewHolder(ItemCommentBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -22,13 +24,10 @@ class CommentAdapter : ListAdapter<DetailArticleResponse.Data.Comment, CommentAd
     class CommentViewHolder(private val binding: ItemCommentBinding) : ViewHolder(binding.root) {
         fun bind(item: DetailArticleResponse.Data.Comment) {
 
+   inner class CommentViewHolder(private val binding: ItemCommentBinding) : ViewHolder(binding.root) {
+        fun bind(item: DetailArticleResponse.Data.Comment) {
+                binding.tvTextComment.text = item.content
         }
-    }
-
-    fun addListItem(newItem: DetailArticleResponse.Data.Comment){
-        val newItemList = mutableListOf<DetailArticleResponse.Data.Comment>()
-        newItemList.add(newItem)
-        submitList(newItemList)
     }
 
     companion object {
