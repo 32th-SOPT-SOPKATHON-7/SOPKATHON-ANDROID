@@ -1,7 +1,7 @@
 package com.solosol.a32th_sopt_sopkathon_7_android
 
-import android.content.pm.PackageManager
-import android.os.Build
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
@@ -16,7 +16,7 @@ import java.security.NoSuchAlgorithmException
 class MainActivity : BaseViewBindingActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        /*setContentView 하지 말기 */
+        /** setContentView 하지 말기 **/
         showToast("화이팅")
     }
 
