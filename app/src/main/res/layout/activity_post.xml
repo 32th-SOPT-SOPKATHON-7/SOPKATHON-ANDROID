@@ -28,11 +28,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@+id/ibPostTopAppBarClose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
             android:src="@drawable/close"
-            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -69,9 +70,9 @@
         android:maxLength="30"
         android:maxLines="1"
         android:textColor="@color/black"
+        android:textColorHint="@color/gray_500"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColorHint="@color/gray_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_post_top_app_bar" />
@@ -90,9 +91,9 @@
         android:id="@+id/ivPostLocationOn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/location_on"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/location_on"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewPostDivider" />
 
@@ -100,10 +101,10 @@
         android:id="@+id/tvPostStationName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="14dp"
         android:textColor="@color/gray_700"
         android:textSize="12sp"
-        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@+id/ivPostLocationOn"
         app:layout_constraintTop_toBottomOf="@id/viewPostDivider"
         tools:text="문래역" />
@@ -116,11 +117,11 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="14dp"
         android:background="@null"
-        android:textColorHint="@color/gray_500"
         android:hint="@string/post_input_content_hint"
-        android:textColor="@color/black"
-        android:textSize="14sp"
         android:maxLines="30"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_500"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPostStationName" />
