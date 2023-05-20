@@ -1,5 +1,6 @@
 package com.solosol.a32th_sopt_sopkathon_7_android
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
