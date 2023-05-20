@@ -17,7 +17,7 @@
         tools:text="여기는 댓글이 들어갈 곳입니다 오키?" />
 
     <TextView
-        android:id="@+id/tv_showtime_comment"
+        android:id="@+id/tv_comment_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
