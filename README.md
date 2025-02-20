@@ -81,7 +81,7 @@
 <br/>
 
 <h2> 📸팀원끼리 응원의 메시지를 담은 사진 촬영 </h2>
-<img src="https://github.com/jihyunniiii/BOJ/assets/103172971/49b2cd98-5624-4696-8237-0bcfff5da7d3"  alt="솝커톤-응원사진" />
+<!-- <img src="https://github.com/jihyunniiii/BOJ/assets/103172971/49b2cd98-5624-4696-8237-0bcfff5da7d3"  alt="솝커톤-응원사진" /> -->
 
 결과가 어떻든 우리는 이 과정을 통해 성장할 것이고 이미 성장했습니다. 즐겨봐요!! 대 안드로이드 화이팅!!!
 
